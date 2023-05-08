@@ -2,6 +2,12 @@ from imports import *
 
 class AssertTest(Imp):
     def __init__(self):
+        # deixar o código mais rapido pois o firefox não fica visível, apenas os testes rodam
+        # self.options = FirefoxOptions()
+        # self.options.add_argument('-headless')
+        # self.options.add_argument('-window-size=1920,1080')
+        # self.options.add_argument('-start-maximized')
+        # self.driver = Firefox(options=self.options)
         self.driver = Firefox()
         self.driver.get(self.URL)
     

@@ -13,5 +13,5 @@ teste1.sair()
 
 # caso de teste do github
 teste2 = GitHubTest()
-teste2.gitHubTeste("gitignore")
+teste2.gitHubTeste("languages")
 teste2.sair()
