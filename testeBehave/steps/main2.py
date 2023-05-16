@@ -13,6 +13,7 @@ def clicarBarraPesquisa(context):
 
 @then(u'deve aparecer o site do python')
 def resultados(context):
+    sleep(1)
     spanText = context.driver.title
     assert spanText == "Welcome to Python.org"
 
