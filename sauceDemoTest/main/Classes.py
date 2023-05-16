@@ -1,12 +1,8 @@
 from .imports import *
 
 class Base(imp):
-    def __init__(self):
-        self.options = FirefoxOptions()
-        self.options.add_argument('-headless')
-        self.options.add_argument('-window-size=1920,1080')
-        self.options.add_argument('-start-maximized')
-        self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=self.options)
+    def __init__(self): 
+        self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     
     def find(self, elemento):
         sleep(1)
