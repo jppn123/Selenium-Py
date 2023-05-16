@@ -15,19 +15,26 @@ class Base(imp):
     def send(self, elemento, key):
         self.find(elemento).send_keys(*key)
 
-class Actions(Base):
+class Login(Base):
+    def enviarUser(self, username):
+        self.send(self.LOGIN, username)
+        
+    def enviarSenha(self, senha):
+        self.send(self.SENHA, senha)
+        
+    def enviarDados(self):
+        self.find(self.IDBUTTON).click()
+        
+class Logout(Base):
+    def clicarMenu(self):
+        self.find(self.IDMENU).click()
+    
+    def clicarLogout(self):
+        self.find(self.LOGOUTBUTTON).click()
+        
+class Actions(Login, Logout):
     def entrarPage(self):
         self.driver.get(self.URL)
-        
-    def login(self, login, senha):
-        self.send(self.LOGIN, login)
-        self.send(self.SENHA, senha)
-        self.find(self.IDBUTTON).click()
     
-    def logout(self):
-        self.find(self.IDMENU).click()
-        self.find(self.LOGOUTBUTTON).click()
-    
-    # vai ser o after_all do behave
     def quit(self):
         self.driver.quit()
